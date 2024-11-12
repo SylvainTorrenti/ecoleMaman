@@ -6,5 +6,11 @@ namespace ecoleMaman
         {
             InitializeComponent();
         }
+
+        private void btEx1_Click(object sender, EventArgs e)
+        {
+            using Exercice1 exercice1 = new Exercice1();
+            DialogResult res = exercice1.ShowDialog();
+        }
     }
 }
