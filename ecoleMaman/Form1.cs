@@ -1,10 +1,15 @@
+using System.ComponentModel;
+
 namespace ecoleMaman
 {
     public partial class FormPrincipal : Form
     {
+        Db _db = new Db();
+        BindingList<Word> _words = new BindingList<Word>();
         public FormPrincipal()
         {
             InitializeComponent();
+            InitializeBinding();
         }
 
         private void btExo1_Click(object sender, EventArgs e)
@@ -30,5 +35,19 @@ namespace ecoleMaman
             using frmExercice4 frmExercice4 = new();
             frmExercice4.ShowDialog();
         }
+        private void btTest_Click(object sender, EventArgs e)
+        {
+            var words = _db.GetWords();
+
+            foreach (Word word in words)
+                _words.Add(word);
+        }
+        private void InitializeBinding()
+        {
+            _words = new BindingList<Word>();
+            bsMot.DataSource = _words;
+            dgvListmot.DataSource = bsMot;
+        }
+
     }
 }

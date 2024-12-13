@@ -42,14 +42,15 @@
             labAddMot = new Label();
             tbAddMot = new TextBox();
             labListMot = new Label();
-            dtgListmot = new DataGridView();
+            dgvListmot = new DataGridView();
             bsMot = new BindingSource(components);
+            btTest = new Button();
             tlpMain.SuspendLayout();
             tlpChoixExercice.SuspendLayout();
             tlpListExo.SuspendLayout();
             tlpListMot.SuspendLayout();
             tlpAddMot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgListmot).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListmot).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsMot).BeginInit();
             SuspendLayout();
             // 
@@ -157,7 +158,7 @@
             tlpListMot.ColumnCount = 1;
             tlpListMot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlpListMot.Controls.Add(tlpAddMot, 0, 0);
-            tlpListMot.Controls.Add(dtgListmot, 0, 1);
+            tlpListMot.Controls.Add(dgvListmot, 0, 1);
             tlpListMot.Dock = DockStyle.Fill;
             tlpListMot.Location = new Point(408, 3);
             tlpListMot.Name = "tlpListMot";
@@ -169,11 +170,13 @@
             // 
             // tlpAddMot
             // 
-            tlpAddMot.ColumnCount = 1;
+            tlpAddMot.ColumnCount = 2;
             tlpAddMot.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpAddMot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 63F));
             tlpAddMot.Controls.Add(labAddMot, 0, 0);
             tlpAddMot.Controls.Add(tbAddMot, 0, 1);
             tlpAddMot.Controls.Add(labListMot, 0, 2);
+            tlpAddMot.Controls.Add(btTest, 1, 1);
             tlpAddMot.Dock = DockStyle.Fill;
             tlpAddMot.Location = new Point(3, 3);
             tlpAddMot.Name = "tlpAddMot";
@@ -190,7 +193,7 @@
             labAddMot.Dock = DockStyle.Bottom;
             labAddMot.Location = new Point(3, 40);
             labAddMot.Name = "labAddMot";
-            labAddMot.Size = new Size(371, 15);
+            labAddMot.Size = new Size(308, 15);
             labAddMot.TabIndex = 0;
             labAddMot.Text = "Ajouter un mot";
             // 
@@ -210,17 +213,31 @@
             labListMot.TabIndex = 2;
             labListMot.Text = "Liste des mots";
             // 
-            // dtgListmot
+            // dgvListmot
             // 
-            dtgListmot.AllowUserToAddRows = false;
-            dtgListmot.AllowUserToDeleteRows = false;
-            dtgListmot.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgListmot.Dock = DockStyle.Fill;
-            dtgListmot.Location = new Point(3, 139);
-            dtgListmot.Name = "dtgListmot";
-            dtgListmot.ReadOnly = true;
-            dtgListmot.Size = new Size(377, 303);
-            dtgListmot.TabIndex = 1;
+            dgvListmot.AllowUserToAddRows = false;
+            dgvListmot.AllowUserToDeleteRows = false;
+            dgvListmot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListmot.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvListmot.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvListmot.Dock = DockStyle.Fill;
+            dgvListmot.Location = new Point(3, 139);
+            dgvListmot.Name = "dgvListmot";
+            dgvListmot.ReadOnly = true;
+            dgvListmot.RowHeadersVisible = false;
+            dgvListmot.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListmot.Size = new Size(377, 303);
+            dgvListmot.TabIndex = 1;
+            // 
+            // btTest
+            // 
+            btTest.Location = new Point(317, 58);
+            btTest.Name = "btTest";
+            btTest.Size = new Size(57, 23);
+            btTest.TabIndex = 3;
+            btTest.Text = "Test";
+            btTest.UseVisualStyleBackColor = true;
+            btTest.Click += btTest_Click;
             // 
             // FormPrincipal
             // 
@@ -239,7 +256,7 @@
             tlpListMot.ResumeLayout(false);
             tlpAddMot.ResumeLayout(false);
             tlpAddMot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgListmot).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvListmot).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsMot).EndInit();
             ResumeLayout(false);
         }
@@ -258,8 +275,9 @@
         private Button btExo3;
         private Button btExo4;
         private TextBox tbAddMot;
-        private DataGridView dtgListmot;
+        private DataGridView dgvListmot;
         private BindingSource bsMot;
         private Label labListMot;
+        private Button btTest;
     }
 }
